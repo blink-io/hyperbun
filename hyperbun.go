@@ -54,7 +54,8 @@ func NewFromSqlDB(sqlDB *sql.DB, dialect Dialect, ops ...Option) (*DB, error) {
 	}
 
 	db := &DB{
-		rdb: rdb,
+		rdb:   rdb,
+		sqlDB: sqlDB,
 	}
 
 	return db, nil
