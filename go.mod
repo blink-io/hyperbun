@@ -7,7 +7,7 @@ require (
 	github.com/aarondl/opt v0.0.0-20240623220848-083f18ab9536
 	github.com/blink-io/hypersql v0.0.0-20240802080035-b958b74ddd8f
 	github.com/getsentry/sentry-go v0.28.1
-	github.com/goccy/go-json v0.9.11
+	github.com/goccy/go-json v0.10.3
 	github.com/gofrs/uuid/v5 v5.2.0
 	github.com/google/uuid v1.6.0
 	github.com/stretchr/testify v1.9.0
@@ -61,7 +61,7 @@ require (
 	golang.org/x/text v0.16.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	modernc.org/gc/v3 v3.0.0-20240801135723-a856999a2e4a // indirect
-	modernc.org/libc v1.55.7 // indirect
+	modernc.org/libc v1.56.0 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.8.0 // indirect
 	modernc.org/sqlite v1.31.1 // indirect
