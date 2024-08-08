@@ -23,6 +23,7 @@ var (
 	ColumnNames = &columnNames{
 		// Required fields
 		ID:        "id",
+		GUID:      "guid",
 		CreatedAt: "created_at",
 		UpdatedAt: "updated_at",
 		// Optional fields
@@ -37,6 +38,7 @@ var (
 type columnNames struct {
 	// Require columnNames
 	ID        string
+	GUID      string
 	CreatedAt string
 	UpdatedAt string
 	// Optional columnNames
@@ -45,6 +47,20 @@ type columnNames struct {
 	DeletedAt string
 	DeletedBy string
 	IsDeleted string
+}
+
+func (c *columnNames) All() []string {
+	return []string{
+		c.ID,
+		c.GUID,
+		c.CreatedAt,
+		c.UpdatedAt,
+		c.CreatedBy,
+		c.UpdatedBy,
+		c.DeletedAt,
+		c.DeletedBy,
+		c.IsDeleted,
+	}
 }
 
 type Generator func() string

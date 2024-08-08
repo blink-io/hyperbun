@@ -1,6 +1,9 @@
 package model
 
 const (
+	FieldNameID   = "id"
+	FieldNameGUID = "guid"
+
 	FieldNameCreatedAt = "created_at"
 	FieldNameCreateBy  = "created_by"
 
