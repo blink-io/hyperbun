@@ -58,6 +58,8 @@ func NewFromSqlDB(sqlDB *sql.DB, dialect Dialect, ops ...Option) (*DB, error) {
 		sqlDB: sqlDB,
 	}
 
+	bun.SetLogger()
+
 	return db, nil
 }
 
