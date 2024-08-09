@@ -1,6 +1,8 @@
 package model
 
-import bunx "github.com/blink-io/hyperbun"
+import (
+	bunx "github.com/blink-io/hyperbun"
+)
 
 type Schema[M any, C any] struct {
 	PK      string
@@ -12,6 +14,10 @@ type Schema[M any, C any] struct {
 }
 
 type Table string
+
+func (t Table) String() string {
+	return string(t)
+}
 
 type Column string
 
@@ -25,4 +31,8 @@ func (c Column) Ident() bunx.Ident {
 
 func (c Column) Safe() bunx.Safe {
 	return bunx.Safe(c)
+}
+
+func (c Column) String() string {
+	return string(c)
 }
