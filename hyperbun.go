@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	ErrNilConfig = errors.New("config is nil")
+	ErrNilConfig = errors.New("[hyperbun] config is nil")
 )
 
 type Config = hypersql.Config
