@@ -5,11 +5,11 @@ go 1.22.5
 require (
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/aarondl/opt v0.0.0-20240623220848-083f18ab9536
-	github.com/blink-io/hypersql v0.0.0-20240808090908-9e99ba5a23df
+	github.com/blink-io/hypersql v0.0.0-20240812035920-e0edc77efcad
 	github.com/brianvoe/gofakeit/v7 v7.0.4
 	github.com/getsentry/sentry-go v0.28.1
 	github.com/goccy/go-json v0.10.3
-	github.com/gofrs/uuid/v5 v5.2.0
+	github.com/gofrs/uuid/v5 v5.3.0
 	github.com/google/uuid v1.6.0
 	github.com/qustavo/sqlhooks/v2 v2.1.0
 	github.com/sanity-io/litter v1.5.5
@@ -65,7 +65,7 @@ require (
 	golang.org/x/tools v0.24.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	modernc.org/gc/v3 v3.0.0-20240801135723-a856999a2e4a // indirect
-	modernc.org/libc v1.57.0 // indirect
+	modernc.org/libc v1.59.1 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.8.0 // indirect
 	modernc.org/sqlite v1.32.0 // indirect
