@@ -18,8 +18,8 @@ func applyOptions(ops ...Option) *options {
 	return opt
 }
 
-// Location uses time location
-func Location(loc *time.Location) Option {
+// WithLocation uses time location
+func WithLocation(loc *time.Location) Option {
 	return func(o *options) {
 		o.loc = loc
 	}

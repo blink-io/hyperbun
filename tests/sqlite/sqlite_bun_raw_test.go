@@ -1,6 +1,7 @@
 package sqlite
 
 import (
+	"fmt"
 	"testing"
 
 	bunx "github.com/blink-io/hyperbun"
@@ -26,4 +27,13 @@ func TestSqlite_Bun_Raw_Select_Custom_1(t *testing.T) {
 	err := db.NewRaw("select * from users where id > 0").
 		Scan(ctx, &rs)
 	require.NoError(t, err)
+}
+
+func TestSqlite_Bun_Raw_Select_Custom_2(t *testing.T) {
+	db := getSqliteDB()
+	var rs string
+	err := db.NewRaw("select sqlite_version()").
+		Scan(ctx, &rs)
+	require.NoError(t, err)
+	fmt.Printf("sqlite version: %s\n", rs)
 }

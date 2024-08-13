@@ -1,21 +1,18 @@
 package hyperbun
 
 import (
-	"context"
-
 	"github.com/blink-io/hypersql"
 )
 
-func GetDialect(ctx context.Context, c *Config, ops ...DialectOption) (Dialect, error) {
-	switch hypersql.GetFormalDialect(c.Dialect) {
+func GetDialect(dialect string, ops ...DialectOption) (Dialect, error) {
+	switch hypersql.GetFormalDialect(dialect) {
 	case hypersql.DialectPostgres:
-		return NewPostgresDialect(ctx, ops...), nil
+		return NewPostgresDialect(ops...), nil
 	case hypersql.DialectMySQL:
-		return NewMySQLDialect(ctx, ops...), nil
+		return NewMySQLDialect(ops...), nil
 	case hypersql.DialectSQLite:
-		return NewSQLiteDialect(ctx, ops...), nil
+		return NewSQLiteDialect(ops...), nil
 	default:
 		return nil, hypersql.ErrUnsupportedDialect
 	}
-
 }

@@ -45,10 +45,14 @@ type (
 
 var _ IDB = (*DB)(nil)
 
-func NewFromSqlDB(sqlDB *sql.DB, dialect Dialect, ops ...Option) (*DB, error) {
-	rdb := bun.NewDB(sqlDB, dialect, bun.WithDiscardUnknownColumns())
-
+func NewFromSqlDB(sqlDB *sql.DB, dialect string, ops ...Option) (*DB, error) {
 	opts := applyOptions(ops...)
+	dl, err := GetDialect(dialect, opts.dialectOptions...)
+	if err != nil {
+		return nil, err
+	}
+	rdb := bun.NewDB(sqlDB, dl, bun.WithDiscardUnknownColumns())
+
 	for _, h := range opts.queryHooks {
 		rdb.AddQueryHook(h)
 	}
@@ -65,23 +69,16 @@ func NewFromConf(c *Config, ops ...Option) (*DB, error) {
 	if c == nil {
 		return nil, ErrNilConfig
 	}
-
-	ctx := context.Background()
-	dOpts := make([]DialectOption, 0)
+	dlOpts := make([]DialectOption, 0)
 	if c.Loc != nil {
-		dOpts = append(dOpts, DialectWithLoc(c.Loc))
+		dlOpts = append(dlOpts, DialectWithLoc(c.Loc))
 	}
-	dialect, err := GetDialect(ctx, c, dOpts...)
-	if err != nil {
-		return nil, err
-	}
-
+	ops = append(ops, WithDialectOptions(dlOpts...))
 	sqlDB, err := hypersql.NewSqlDB(c)
 	if err != nil {
 		return nil, err
 	}
-
-	return NewFromSqlDB(sqlDB, dialect, ops...)
+	return NewFromSqlDB(sqlDB, c.Dialect, ops...)
 }
 
 func (db *DB) RegisterModel(m ...any) {

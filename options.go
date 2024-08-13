@@ -7,7 +7,8 @@ import (
 type QueryHook = bun.QueryHook
 
 type options struct {
-	queryHooks []QueryHook
+	queryHooks     []QueryHook
+	dialectOptions []DialectOption
 }
 
 type Option func(*options)
@@ -23,5 +24,11 @@ func applyOptions(ops ...Option) *options {
 func WithQueryHooks(hooks ...QueryHook) Option {
 	return func(o *options) {
 		o.queryHooks = append(o.queryHooks, hooks...)
+	}
+}
+
+func WithDialectOptions(ops ...DialectOption) Option {
+	return func(o *options) {
+		o.dialectOptions = append(o.dialectOptions, ops...)
 	}
 }
