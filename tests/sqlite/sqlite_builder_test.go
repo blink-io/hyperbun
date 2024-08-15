@@ -2,12 +2,12 @@ package sqlite
 
 import (
 	"fmt"
+	"os"
 	"testing"
 
 	sq "github.com/Masterminds/squirrel"
 	bunx "github.com/blink-io/hyperbun"
 	"github.com/stephenafamo/scan"
-	"github.com/stephenafamo/scan/stdscan"
 	"github.com/stretchr/testify/require"
 )
 
@@ -27,7 +27,9 @@ func TestSqlite_Builder_Select_1(t *testing.T) {
 		ToSql()
 	require.NoError(t, err)
 
-	rts, err := stdscan.All(ctx, db, scan.StructMapper[*IdName](), sql, args...)
+	ddb := scan.Debug(db.ScanQueryer(), os.Stderr)
+
+	rts, err := scan.All(ctx, ddb, scan.StructMapper[*IdName](), sql, args...)
 	require.NoError(t, err)
 
 	fmt.Println(rts)
