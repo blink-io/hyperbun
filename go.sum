@@ -20,6 +20,8 @@ github.com/blink-io/hypersql v0.0.0-20240812083731-e1fab1ee99f2 h1:Pbmpuw8fubYOQ
 github.com/blink-io/hypersql v0.0.0-20240812083731-e1fab1ee99f2/go.mod h1:zxx/bNAaB2HDh22bnKr8KZ0NKCYquFto5MZ15W4Sffs=
 github.com/blink-io/hypersql v0.0.0-20240813080521-bc322b3ee701 h1:Fcccn7A9Ijo4mbNRXadF8NGflpACCKI6AdRuIL7lpec=
 github.com/blink-io/hypersql v0.0.0-20240813080521-bc322b3ee701/go.mod h1:xY4D0Tp47zQHVEBRTuq0nQ3IiDd8sQibT0bGBv3PH4Q=
+github.com/blink-io/hypersql v0.0.0-20240814015947-d921ff592040 h1:SLu2DJWntLbZKxROwvvdjLxaeYw1oj53L4l8XUT/WfA=
+github.com/blink-io/hypersql v0.0.0-20240814015947-d921ff592040/go.mod h1:dG6kzJ8nqmPRL+bc4tX+95ylylclgWG5qkicX16rbR4=
 github.com/brianvoe/gofakeit/v7 v7.0.4 h1:Mkxwz9jYg8Ad8NvT9HA27pCMZGFQo08MK6jD0QTKEww=
 github.com/brianvoe/gofakeit/v7 v7.0.4/go.mod h1:QXuPeBw164PJCzCUZVmgpgHJ3Llj49jSLVkKPMtxtxA=
 github.com/davecgh/go-spew v0.0.0-20161028175848-04cdfd42973b/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -190,6 +192,8 @@ modernc.org/libc v1.59.1 h1:ZVsgtxNu5OyIsX0Qq6T4aN7IxP1YTmvKZuf8T5fV0Ro=
 modernc.org/libc v1.59.1/go.mod h1:EY/egGEU7Ju66eU6SBqCNYaFUDuc4npICkMWnU5EE3A=
 modernc.org/libc v1.59.3 h1:A4QAp1lRSn2/b4aU+wBtq+yeKgq/2BUevrj0p1ZNy2M=
 modernc.org/libc v1.59.3/go.mod h1:EY/egGEU7Ju66eU6SBqCNYaFUDuc4npICkMWnU5EE3A=
+modernc.org/libc v1.59.4 h1:kas1A6v59SN7iJIy4BQ/o5djZC1VO3pPhwc7HS4Atco=
+modernc.org/libc v1.59.4/go.mod h1:EY/egGEU7Ju66eU6SBqCNYaFUDuc4npICkMWnU5EE3A=
 modernc.org/mathutil v1.6.0 h1:fRe9+AmYlaej+64JsEEhoWuAYBkOtQiMEU7n/XgfYi4=
 modernc.org/mathutil v1.6.0/go.mod h1:Ui5Q9q1TR2gFm0AQRqQUaBWFLAhQpCwNcuhBOSedWPo=
 modernc.org/memory v1.8.0 h1:IqGTL6eFMaDZZhEWwcREgeMXYwmW83LYW8cROZYkg+E=
