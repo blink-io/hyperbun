@@ -5,7 +5,7 @@ go 1.22.5
 require (
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/aarondl/opt v0.0.0-20240623220848-083f18ab9536
-	github.com/blink-io/hypersql v0.0.0-20240815002229-1dd1b1fb1a2b
+	github.com/blink-io/hypersql v0.0.0-20240818095303-b8d9d470519a
 	github.com/brianvoe/gofakeit/v7 v7.0.4
 	github.com/getsentry/sentry-go v0.28.1
 	github.com/goccy/go-json v0.10.3
@@ -44,10 +44,13 @@ require (
 	github.com/lib/pq v1.10.9 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-sqlite3 v1.14.22 // indirect
+	github.com/ncruces/go-sqlite3 v0.18.0 // indirect
 	github.com/ncruces/go-strftime v0.1.9 // indirect
+	github.com/ncruces/julianday v1.0.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/spf13/cast v1.7.0 // indirect
+	github.com/tetratelabs/wazero v1.8.0 // indirect
 	github.com/tmthrgd/go-hex v0.0.0-20190904060850-447a3041c3bc // indirect
 	github.com/uptrace/opentelemetry-go-extra/otelsql v0.3.1 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
