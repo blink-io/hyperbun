@@ -5,7 +5,7 @@ go 1.22.5
 require (
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/aarondl/opt v0.0.0-20240623220848-083f18ab9536
-	github.com/blink-io/hypersql v0.0.0-20240818095303-b8d9d470519a
+	github.com/blink-io/hypersql v0.0.0-20240822152556-9bb3574205cd
 	github.com/brianvoe/gofakeit/v7 v7.0.4
 	github.com/getsentry/sentry-go v0.28.1
 	github.com/goccy/go-json v0.10.3
@@ -56,9 +56,9 @@ require (
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/xo/dburl v0.23.2 // indirect
-	go.opentelemetry.io/otel v1.28.0 // indirect
-	go.opentelemetry.io/otel/metric v1.28.0 // indirect
-	go.opentelemetry.io/otel/trace v1.28.0 // indirect
+	go.opentelemetry.io/otel v1.29.0 // indirect
+	go.opentelemetry.io/otel/metric v1.29.0 // indirect
+	go.opentelemetry.io/otel/trace v1.29.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.26.0 // indirect
 	golang.org/x/mod v0.20.0 // indirect
