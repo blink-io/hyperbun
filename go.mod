@@ -15,10 +15,10 @@ require (
 	github.com/sanity-io/litter v1.5.5
 	github.com/stephenafamo/scan v0.5.0
 	github.com/stretchr/testify v1.9.0
-	github.com/uptrace/bun v1.2.1
-	github.com/uptrace/bun/dialect/mysqldialect v1.2.1
-	github.com/uptrace/bun/dialect/pgdialect v1.2.1
-	github.com/uptrace/bun/dialect/sqlitedialect v1.2.1
+	github.com/uptrace/bun v1.2.2
+	github.com/uptrace/bun/dialect/mysqldialect v1.2.2
+	github.com/uptrace/bun/dialect/pgdialect v1.2.2
+	github.com/uptrace/bun/dialect/sqlitedialect v1.2.2
 	go.uber.org/zap v1.27.0
 )
 
@@ -48,6 +48,7 @@ require (
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	github.com/ncruces/julianday v1.0.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/puzpuzpuz/xsync/v3 v3.4.0 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/spf13/cast v1.7.0 // indirect
 	github.com/tetratelabs/wazero v1.8.0 // indirect
