@@ -4,6 +4,8 @@ github.com/Masterminds/squirrel v1.5.4 h1:uUcX/aBc8O7Fg9kaISIUsHXdKuqehiXAMQTYX8
 github.com/Masterminds/squirrel v1.5.4/go.mod h1:NNaOrjSoIDfDA40n7sr2tPNZRfjzjA400rg+riTZj10=
 github.com/XSAM/otelsql v0.32.0 h1:vDRE4nole0iOOlTaC/Bn6ti7VowzgxK39n3Ll1Kt7i0=
 github.com/XSAM/otelsql v0.32.0/go.mod h1:Ary0hlyVBbaSwo8atZB8Aoothg9s/LBJj/N/p5qDmLM=
+github.com/XSAM/otelsql v0.33.0 h1:8ZgVGFMG78Gd7BcCkxZ+lBTybWrnOtQv5sn4sLWb0+w=
+github.com/XSAM/otelsql v0.33.0/go.mod h1:TIaqdCA0m+GP0TJ4axwMSLunVfMFsxf1x1UU8MlUvAY=
 github.com/aarondl/json v0.0.0-20221020222930-8b0db17ef1bf h1:+edM69bH/X6JpYPmJYBRLanAMe1V5yRXYU3hHUovGcE=
 github.com/aarondl/json v0.0.0-20221020222930-8b0db17ef1bf/go.mod h1:FZqLhJSj2tg0ZN48GB1zvj00+ZYcHPqgsC7yzcgCq6k=
 github.com/aarondl/opt v0.0.0-20240623220848-083f18ab9536 h1:vhpjulzH5Tr4S3uJ3Y/9pNL481kPq5ERj13ceAW0/uE=
@@ -28,6 +30,8 @@ github.com/blink-io/hypersql v0.0.0-20240818095303-b8d9d470519a h1:tQB7YvSZbPrS2
 github.com/blink-io/hypersql v0.0.0-20240818095303-b8d9d470519a/go.mod h1:QUN4sTpJBRPBbX6mvYrrj7Xs1rqbSmzvxeVXojQhZV4=
 github.com/blink-io/hypersql v0.0.0-20240822152556-9bb3574205cd h1:4OKSeuz0CVvVlqhC1BkHQhrCvlbzB2tWLLm8vZtLArM=
 github.com/blink-io/hypersql v0.0.0-20240822152556-9bb3574205cd/go.mod h1:QUN4sTpJBRPBbX6mvYrrj7Xs1rqbSmzvxeVXojQhZV4=
+github.com/blink-io/hypersql v0.0.0-20240824030716-d41f4e6b5218 h1:pG87y5greepYKveLLxFDSpnXZTuzc+QJSlikfMLYT5I=
+github.com/blink-io/hypersql v0.0.0-20240824030716-d41f4e6b5218/go.mod h1:SxxOXNRh0+iSawRHpob+xTibe2/RdaAcGsh/rK+wqpY=
 github.com/brianvoe/gofakeit/v7 v7.0.4 h1:Mkxwz9jYg8Ad8NvT9HA27pCMZGFQo08MK6jD0QTKEww=
 github.com/brianvoe/gofakeit/v7 v7.0.4/go.mod h1:QXuPeBw164PJCzCUZVmgpgHJ3Llj49jSLVkKPMtxtxA=
 github.com/davecgh/go-spew v0.0.0-20161028175848-04cdfd42973b/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -216,6 +220,8 @@ modernc.org/libc v1.59.7 h1:Ia+aIdEz5oQfoM/PIExhAMpSrN9GP4gSgNDMp8y2mAY=
 modernc.org/libc v1.59.7/go.mod h1:EY/egGEU7Ju66eU6SBqCNYaFUDuc4npICkMWnU5EE3A=
 modernc.org/libc v1.59.9 h1:k+nNDDakwipimgmJ1D9H466LhFeSkaPPycAs1OZiDmY=
 modernc.org/libc v1.59.9/go.mod h1:EY/egGEU7Ju66eU6SBqCNYaFUDuc4npICkMWnU5EE3A=
+modernc.org/libc v1.60.0 h1:XeRF1gXky7JE5E8IErtYAdKj+ykZPdYUsgJNQ8RFWIA=
+modernc.org/libc v1.60.0/go.mod h1:xJuobKuNxKH3RUatS7GjR+suWj+5c2K7bi4m/S5arOY=
 modernc.org/mathutil v1.6.0 h1:fRe9+AmYlaej+64JsEEhoWuAYBkOtQiMEU7n/XgfYi4=
 modernc.org/mathutil v1.6.0/go.mod h1:Ui5Q9q1TR2gFm0AQRqQUaBWFLAhQpCwNcuhBOSedWPo=
 modernc.org/memory v1.8.0 h1:IqGTL6eFMaDZZhEWwcREgeMXYwmW83LYW8cROZYkg+E=
