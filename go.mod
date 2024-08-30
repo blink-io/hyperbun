@@ -44,7 +44,7 @@ require (
 	github.com/lib/pq v1.10.9 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-sqlite3 v1.14.22 // indirect
-	github.com/ncruces/go-sqlite3 v0.18.0 // indirect
+	github.com/ncruces/go-sqlite3 v0.18.1 // indirect
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	github.com/ncruces/julianday v1.0.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
