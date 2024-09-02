@@ -15,10 +15,10 @@ require (
 	github.com/sanity-io/litter v1.5.5
 	github.com/stephenafamo/scan v0.5.0
 	github.com/stretchr/testify v1.9.0
-	github.com/uptrace/bun v1.2.2
-	github.com/uptrace/bun/dialect/mysqldialect v1.2.2
-	github.com/uptrace/bun/dialect/pgdialect v1.2.2
-	github.com/uptrace/bun/dialect/sqlitedialect v1.2.2
+	github.com/uptrace/bun v1.2.3
+	github.com/uptrace/bun/dialect/mysqldialect v1.2.3
+	github.com/uptrace/bun/dialect/pgdialect v1.2.3
+	github.com/uptrace/bun/dialect/sqlitedialect v1.2.3
 	go.uber.org/zap v1.27.0
 )
 
@@ -69,7 +69,7 @@ require (
 	golang.org/x/tools v0.24.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	modernc.org/gc/v3 v3.0.0-20240801135723-a856999a2e4a // indirect
-	modernc.org/libc v1.60.0 // indirect
+	modernc.org/libc v1.60.1 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.8.0 // indirect
 	modernc.org/sqlite v1.32.0 // indirect
