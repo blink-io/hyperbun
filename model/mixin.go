@@ -2,10 +2,11 @@ package model
 
 import (
 	"context"
-	"log"
+	"log/slog"
 	"sync"
 	"time"
 
+	"github.com/aarondl/opt/omit"
 	"github.com/aarondl/opt/omitnull"
 	"github.com/google/uuid"
 	"github.com/uptrace/bun"
@@ -95,7 +96,7 @@ func GUIDGen(g Generator) {
 		gg = g
 		guidMux.Unlock()
 	} else {
-		log.Println("parameter g is nil, ignore")
+		slog.Info("parameter g is nil, ignore")
 	}
 }
 
@@ -118,4 +119,17 @@ func handleGUID(m *MixinModel, ctx context.Context, query bun.Query) {
 	if o := query.Operation(); o == "INSERT" && m != nil && len(m.GUID) == 0 {
 		m.GUID = gg()
 	}
+}
+
+type MixinSetter struct {
+	ID        omit.Val[int64]     `db:"id"`
+	GUID      omit.Val[string]    `db:"guid"`
+	CreatedAt omit.Val[time.Time] `db:"created_at"`
+	UpdatedAt omit.Val[time.Time] `db:"updated_at"`
+	// Optional fields for tables
+	CreatedBy omitnull.Val[string]    `db:"created_by"`
+	UpdatedBy omitnull.Val[string]    `db:"updated_by"`
+	DeletedAt omitnull.Val[time.Time] `db:"deleted_at"`
+	DeletedBy omitnull.Val[string]    `db:"deleted_by"`
+	IsDeleted omitnull.Val[bool]      `db:"is_deleted"`
 }
