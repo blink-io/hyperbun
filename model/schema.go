@@ -5,7 +5,7 @@ import (
 )
 
 type Schema[M any, C any] struct {
-	PK      string
+	PK      []string
 	Label   string
 	Alias   string
 	Table   Table
