@@ -34,7 +34,7 @@ func pgCfg() *sqlx.Config {
 		DriverHooks: newDriverHooks(),
 		Logger: func(format string, args ...any) {
 			msg := fmt.Sprintf(format, args...)
-			slog.Default().With("db", "sqlite").Info(msg, "mode", "test")
+			slog.Default().With("db", "postgres").Info(msg, "mode", "test")
 		},
 		Loc: time.Local,
 	}
