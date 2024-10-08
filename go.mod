@@ -5,7 +5,7 @@ go 1.22.5
 require (
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/aarondl/opt v0.0.0-20240623220848-083f18ab9536
-	github.com/blink-io/hypersql v0.0.0-20240930170105-987be21bf7f3
+	github.com/blink-io/hypersql v0.0.0-20241008065611-b903abadc74b
 	github.com/brianvoe/gofakeit/v7 v7.0.4
 	github.com/getsentry/sentry-go v0.29.0
 	github.com/goccy/go-json v0.10.3

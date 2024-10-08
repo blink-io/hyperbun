@@ -12,6 +12,8 @@ github.com/blink-io/hypersql v0.0.0-20240930065756-0775006d816f h1:sQCGZkjyaP+br
 github.com/blink-io/hypersql v0.0.0-20240930065756-0775006d816f/go.mod h1:FEmLLJFdUmp2aiifKtMQw4XM3HOgEPobj+k3WmqeNdY=
 github.com/blink-io/hypersql v0.0.0-20240930170105-987be21bf7f3 h1:6eZirRaZQx//Vnh0K7GxnGhmHA1XQ/GX5DfvY2ipQAE=
 github.com/blink-io/hypersql v0.0.0-20240930170105-987be21bf7f3/go.mod h1:FEmLLJFdUmp2aiifKtMQw4XM3HOgEPobj+k3WmqeNdY=
+github.com/blink-io/hypersql v0.0.0-20241008065611-b903abadc74b h1:3Ia3JtyUtcuHca/dYyKUC5E86SX5t7WDdKNvtX1cYS4=
+github.com/blink-io/hypersql v0.0.0-20241008065611-b903abadc74b/go.mod h1:10fBxHQJJbKrmkdIn8LYord5A9tWb+axqZuhapnFGes=
 github.com/brianvoe/gofakeit/v7 v7.0.4 h1:Mkxwz9jYg8Ad8NvT9HA27pCMZGFQo08MK6jD0QTKEww=
 github.com/brianvoe/gofakeit/v7 v7.0.4/go.mod h1:QXuPeBw164PJCzCUZVmgpgHJ3Llj49jSLVkKPMtxtxA=
 github.com/davecgh/go-spew v0.0.0-20161028175848-04cdfd42973b/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
