@@ -22,6 +22,8 @@ require (
 	go.uber.org/zap v1.27.0
 )
 
+replace github.com/aarondl/opt v0.0.0-20240623220848-083f18ab9536 => github.com/blink-io/opt v0.0.0-20241008132531-89ff275b9859
+
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/XSAM/otelsql v0.34.0 // indirect
