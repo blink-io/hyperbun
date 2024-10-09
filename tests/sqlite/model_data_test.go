@@ -3,7 +3,7 @@ package sqlite
 import (
 	"time"
 
-	"github.com/aarondl/opt/omitnull"
+	"github.com/blink-io/opt/omitnull"
 	"github.com/brianvoe/gofakeit/v7"
 	"github.com/google/uuid"
 )

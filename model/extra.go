@@ -3,9 +3,9 @@ package model
 import (
 	"time"
 
-	"github.com/aarondl/opt/null"
-	"github.com/aarondl/opt/omit"
-	"github.com/aarondl/opt/omitnull"
+	"github.com/blink-io/opt/null"
+	"github.com/blink-io/opt/omit"
+	"github.com/blink-io/opt/omitnull"
 )
 
 type ExtraModel struct {

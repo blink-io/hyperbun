@@ -1,6 +1,6 @@
 package model
 
-import "github.com/aarondl/opt/omit"
+import "github.com/blink-io/opt/omit"
 
 type IDModel struct {
 	ID   int64  `bun:"id,pk,nullzero,autoincrement" db:"id,pk" json:"id,omitempty" toml:"id,omitempty" yaml:"id,omitempty" msgpack:"id,omitempty"`

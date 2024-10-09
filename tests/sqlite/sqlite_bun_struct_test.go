@@ -7,7 +7,7 @@ import (
 
 	bunx "github.com/blink-io/hyperbun"
 
-	"github.com/aarondl/opt/omitnull"
+	"github.com/blink-io/opt/omitnull"
 	"github.com/gofrs/uuid/v5"
 	guuid "github.com/google/uuid"
 	"github.com/stretchr/testify/require"

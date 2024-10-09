@@ -4,7 +4,6 @@ go 1.22.5
 
 require (
 	github.com/Masterminds/squirrel v1.5.4
-	github.com/aarondl/opt v0.0.0-20240623220848-083f18ab9536
 	github.com/blink-io/hypersql v0.0.0-20241009082220-51e7c2b9a433
 	github.com/brianvoe/gofakeit/v7 v7.0.4
 	github.com/getsentry/sentry-go v0.29.0
@@ -22,12 +21,11 @@ require (
 	go.uber.org/zap v1.27.0
 )
 
-replace github.com/aarondl/opt v0.0.0-20240623220848-083f18ab9536 => github.com/blink-io/opt v0.0.0-20241008132531-89ff275b9859
-
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/XSAM/otelsql v0.34.0 // indirect
 	github.com/aarondl/json v0.0.0-20221020222930-8b0db17ef1bf // indirect
+	github.com/blink-io/opt v0.0.0-20241009121109-00fad4fc82a0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
