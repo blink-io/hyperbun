@@ -8,6 +8,8 @@ github.com/aarondl/json v0.0.0-20221020222930-8b0db17ef1bf h1:+edM69bH/X6JpYPmJY
 github.com/aarondl/json v0.0.0-20221020222930-8b0db17ef1bf/go.mod h1:FZqLhJSj2tg0ZN48GB1zvj00+ZYcHPqgsC7yzcgCq6k=
 github.com/blink-io/hypersql v0.0.0-20241008065611-b903abadc74b h1:3Ia3JtyUtcuHca/dYyKUC5E86SX5t7WDdKNvtX1cYS4=
 github.com/blink-io/hypersql v0.0.0-20241008065611-b903abadc74b/go.mod h1:10fBxHQJJbKrmkdIn8LYord5A9tWb+axqZuhapnFGes=
+github.com/blink-io/hypersql v0.0.0-20241009082220-51e7c2b9a433 h1:kWdGlFNB3MLAgoMBfVlmvV2zAxykuRHWUts23LFWyDY=
+github.com/blink-io/hypersql v0.0.0-20241009082220-51e7c2b9a433/go.mod h1:10fBxHQJJbKrmkdIn8LYord5A9tWb+axqZuhapnFGes=
 github.com/blink-io/opt v0.0.0-20241008132531-89ff275b9859 h1:1aaUEXsQBdT6g1lR6AZiDvxPYUTpRXrx83z6IbIaibc=
 github.com/blink-io/opt v0.0.0-20241008132531-89ff275b9859/go.mod h1:l4/5NZtYd/SIohsFhaJQQe+sPOTG22furpZ5FvcYOzk=
 github.com/brianvoe/gofakeit/v7 v7.0.4 h1:Mkxwz9jYg8Ad8NvT9HA27pCMZGFQo08MK6jD0QTKEww=
