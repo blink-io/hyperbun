@@ -39,7 +39,6 @@ type (
 
 	DB struct {
 		*rdb
-		sqlDB *sql.DB
 	}
 )
 
@@ -58,8 +57,7 @@ func NewFromSqlDB(sqlDB *sql.DB, dialect string, ops ...Option) (*DB, error) {
 	}
 
 	db := &DB{
-		rdb:   rdb,
-		sqlDB: sqlDB,
+		rdb: rdb,
 	}
 
 	return db, nil
@@ -69,11 +67,11 @@ func NewFromConf(c *Config, ops ...Option) (*DB, error) {
 	if c == nil {
 		return nil, ErrNilConfig
 	}
-	dlOpts := make([]DialectOption, 0)
+	dOpts := make([]DialectOption, 0)
 	if c.Loc != nil {
-		dlOpts = append(dlOpts, DialectWithLoc(c.Loc))
+		dOpts = append(dOpts, DialectWithLoc(c.Loc))
 	}
-	ops = append(ops, WithDialectOptions(dlOpts...))
+	ops = append(ops, WithDialectOptions(dOpts...))
 	sqlDB, err := hypersql.NewSqlDB(c)
 	if err != nil {
 		return nil, err
@@ -101,5 +99,5 @@ func (db *DB) RawDB() *RawDB {
 }
 
 func (db *DB) HealthCheck(ctx context.Context) error {
-	return hypersql.DoPingContext(ctx, db.sqlDB)
+	return hypersql.DoPingContext(ctx, db.rdb.DB)
 }
