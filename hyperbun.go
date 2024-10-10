@@ -16,9 +16,9 @@ var (
 	ErrNilConfig = errors.New("[hyperbun] config is nil")
 )
 
-type Config = hypersql.Config
-
 type (
+	Config = hypersql.Config
+
 	ext interface {
 		RawDB() *RawDB
 
