@@ -6,10 +6,10 @@ toolchain go1.23.2
 
 require (
 	github.com/Masterminds/squirrel v1.5.4
-	github.com/blink-io/hypersql v0.0.0-20241012142609-405682bb8de3
+	github.com/blink-io/hypersql v0.0.0-20241013144710-c7bd3516706b
 	github.com/blink-io/opt v0.0.0-20241010071220-8e1697ac4737
 	github.com/brianvoe/gofakeit/v7 v7.0.4
-	github.com/getsentry/sentry-go v0.29.0
+	github.com/getsentry/sentry-go v0.29.1
 	github.com/goccy/go-json v0.10.3
 	github.com/gofrs/uuid/v5 v5.3.0
 	github.com/google/uuid v1.6.0
