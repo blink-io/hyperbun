@@ -17,6 +17,8 @@ github.com/blink-io/hypersql v0.0.0-20241012142609-405682bb8de3 h1:Sj8yXAskAVcBN
 github.com/blink-io/hypersql v0.0.0-20241012142609-405682bb8de3/go.mod h1:i3W+W6wGW/CSorNPTg+rbAV3gS6vBZKeM5wzyoBXa9s=
 github.com/blink-io/hypersql v0.0.0-20241013144710-c7bd3516706b h1:TNx7fJ4r6o5eWnnFsJ6ZyuO8ImcOCqPBUMMVEYfgxZQ=
 github.com/blink-io/hypersql v0.0.0-20241013144710-c7bd3516706b/go.mod h1:i3W+W6wGW/CSorNPTg+rbAV3gS6vBZKeM5wzyoBXa9s=
+github.com/blink-io/hypersql v0.0.0-20241014141559-9ff29aa79370 h1:GsHZ7X3On0DfF5W4O03ngsspP5DoEV0szis6wuLd7dQ=
+github.com/blink-io/hypersql v0.0.0-20241014141559-9ff29aa79370/go.mod h1:FSGnih4VAecit48gR0PzYeZi3RlCkIeg1qTidGhKfc8=
 github.com/blink-io/opt v0.0.0-20240623220848-083f18ab9536 h1:YwAX6siXc4NQarf2jnSmy3ubGSgffGeoHtioogJcaw8=
 github.com/blink-io/opt v0.0.0-20240623220848-083f18ab9536/go.mod h1:l4/5NZtYd/SIohsFhaJQQe+sPOTG22furpZ5FvcYOzk=
 github.com/blink-io/opt v0.0.0-20241009121109-00fad4fc82a0 h1:ek/VGvpLNBQz61fwGUO1CXRo8YQaJdOMjSvXfJYzduc=

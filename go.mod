@@ -6,7 +6,7 @@ toolchain go1.23.2
 
 require (
 	github.com/Masterminds/squirrel v1.5.4
-	github.com/blink-io/hypersql v0.0.0-20241013144710-c7bd3516706b
+	github.com/blink-io/hypersql v0.0.0-20241014141559-9ff29aa79370
 	github.com/blink-io/opt v0.0.0-20241010071220-8e1697ac4737
 	github.com/brianvoe/gofakeit/v7 v7.0.4
 	github.com/getsentry/sentry-go v0.29.1
