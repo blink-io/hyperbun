@@ -6,7 +6,7 @@ toolchain go1.23.2
 
 require (
 	github.com/Masterminds/squirrel v1.5.4
-	github.com/blink-io/hypersql v0.0.0-20241023062904-884b6317c557
+	github.com/blink-io/hypersql v0.0.0-20241112150409-21d3fe7e1715
 	github.com/blink-io/opt v0.0.0-20241010071220-8e1697ac4737
 	github.com/brianvoe/gofakeit/v7 v7.0.4
 	github.com/getsentry/sentry-go v0.29.1
@@ -15,7 +15,7 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/qustavo/sqlhooks/v2 v2.1.0
 	github.com/sanity-io/litter v1.5.5
-	github.com/stephenafamo/scan v0.6.0
+	github.com/stephenafamo/scan v0.6.1
 	github.com/stretchr/testify v1.9.0
 	github.com/uptrace/bun v1.2.5
 	github.com/uptrace/bun/dialect/mysqldialect v1.2.5
@@ -56,22 +56,22 @@ require (
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/xo/dburl v0.23.2 // indirect
-	go.opentelemetry.io/otel v1.31.0 // indirect
-	go.opentelemetry.io/otel/metric v1.31.0 // indirect
-	go.opentelemetry.io/otel/trace v1.31.0 // indirect
+	go.opentelemetry.io/otel v1.32.0 // indirect
+	go.opentelemetry.io/otel/metric v1.32.0 // indirect
+	go.opentelemetry.io/otel/trace v1.32.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
-	golang.org/x/crypto v0.28.0 // indirect
-	golang.org/x/exp v0.0.0-20241009180824-f66d83c29e7c // indirect
-	golang.org/x/mod v0.21.0 // indirect
-	golang.org/x/sync v0.8.0 // indirect
-	golang.org/x/sys v0.26.0 // indirect
-	golang.org/x/text v0.19.0 // indirect
+	golang.org/x/crypto v0.29.0 // indirect
+	golang.org/x/exp v0.0.0-20241108190413-2d47ceb2692f // indirect
+	golang.org/x/mod v0.22.0 // indirect
+	golang.org/x/sync v0.9.0 // indirect
+	golang.org/x/sys v0.27.0 // indirect
+	golang.org/x/text v0.20.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	modernc.org/gc/v3 v3.0.0-20241004144649-1aea3fae8852 // indirect
-	modernc.org/libc v1.61.0 // indirect
+	modernc.org/libc v1.61.2 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.8.0 // indirect
-	modernc.org/sqlite v1.33.1 // indirect
+	modernc.org/sqlite v1.34.1 // indirect
 	modernc.org/strutil v1.2.0 // indirect
 	modernc.org/token v1.1.0 // indirect
 )
