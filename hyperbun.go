@@ -50,7 +50,8 @@ func NewFromSqlDB(sqlDB *sql.DB, dialect string, ops ...Option) (*DB, error) {
 	if err != nil {
 		return nil, err
 	}
-	rdb := bun.NewDB(sqlDB, dl, bun.WithDiscardUnknownColumns())
+	dbOpts := bun.WithOptions(bun.WithDiscardUnknownColumns())
+	rdb := bun.NewDB(sqlDB, dl, dbOpts)
 
 	for _, h := range opts.queryHooks {
 		rdb.AddQueryHook(h)
