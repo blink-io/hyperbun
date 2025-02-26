@@ -1,5 +1,3 @@
-//go:build !nosqlite
-
 package hyperbun
 
 import (

@@ -2,7 +2,8 @@ package logging
 
 import (
 	"context"
-	"log"
+	"fmt"
+	"log/slog"
 
 	"github.com/uptrace/bun"
 )
@@ -17,7 +18,9 @@ func New(ops ...Option) bun.QueryHook {
 		o(h)
 	}
 	if h.logf == nil {
-		h.logf = log.Printf
+		h.logf = func(format string, args ...any) {
+			slog.Info(fmt.Sprintf(format, args...))
+		}
 	}
 	return h
 }

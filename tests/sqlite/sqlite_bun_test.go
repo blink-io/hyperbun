@@ -6,7 +6,7 @@ import (
 
 	bunx "github.com/blink-io/hyperbun"
 
-	"github.com/aarondl/opt/omitnull"
+	"github.com/blink-io/opt/omitnull"
 	"github.com/brianvoe/gofakeit/v7"
 	"github.com/stretchr/testify/require"
 )

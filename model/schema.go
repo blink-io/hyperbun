@@ -4,8 +4,8 @@ import (
 	bunx "github.com/blink-io/hyperbun"
 )
 
-type Schema[M any, C any] struct {
-	PK      string
+type Schema[M Model, C Columns] struct {
+	PK      []string
 	Label   string
 	Alias   string
 	Table   Table
@@ -35,4 +35,12 @@ func (c Column) Safe() bunx.Safe {
 
 func (c Column) String() string {
 	return string(c)
+}
+
+type Model interface {
+	IsModel()
+}
+
+type Columns interface {
+	IsColumns()
 }
