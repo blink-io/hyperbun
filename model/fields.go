@@ -13,4 +13,7 @@ const (
 	FieldNameDeletedAt = "deleted_at"
 	FieldNameDeletedBy = "deleted_by"
 	FieldNameIsDeleted = "is_deleted"
+
+	FiledNameState = "state"
+	FiledNameType  = "type"
 )

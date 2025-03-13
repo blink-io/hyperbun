@@ -71,15 +71,17 @@ var _ bun.BeforeAppendModelHook = (*MixinModel)(nil)
 type MixinModel struct {
 	// ID generator for a single model
 	ID        int64     `bun:"id,pk,autoincrement" db:"id"`
-	GUID      string    `bun:"guid,notnull,unique,type:varchar(60)" db:"guid"`
+	GUID      string    `bun:"guid,notnull,unique" db:"guid"`
 	CreatedAt time.Time `bun:"created_at,notnull,skipupdate" db:"created_at"`
 	UpdatedAt time.Time `bun:"updated_at,notnull" db:"updated_at"`
+	CreatedBy string    `bun:"created_by,notnull,skipupdate" db:"created_by"`
+	UpdatedBy string    `bun:"updated_by,notnull" db:"updated_by"`
+	State     string    `bun:"state,notnull" db:"state"`
+	Type      string    `bun:"type,notnull" db:"type"`
 	// Optional fields for tables
-	CreatedBy omitnull.Val[string]    `bun:"created_by,type:varchar(60),nullzero,skipupdate" db:"created_by"`
-	UpdatedBy omitnull.Val[string]    `bun:"updated_by,type:varchar(60),nullzero" db:"updated_by"`
-	DeletedAt omitnull.Val[time.Time] `bun:"deleted_at,nullzero,skipupdate" db:"deleted_at"`
-	DeletedBy omitnull.Val[string]    `bun:"deleted_by,type:varchar(60),nullzero,skipupdate" db:"deleted_by"`
-	IsDeleted omitnull.Val[bool]      `bun:"is_deleted,nullzero,skipupdate" db:"is_deleted"`
+	DeletedAt omitnull.Val[time.Time] `bun:"deleted_at,skipupdate" db:"deleted_at"`
+	DeletedBy omitnull.Val[string]    `bun:"deleted_by,skipupdate" db:"deleted_by"`
+	IsDeleted bool                    `bun:"is_deleted,skipupdate" db:"is_deleted"`
 }
 
 func (m *MixinModel) BeforeAppendModel(ctx context.Context, query bun.Query) error {
@@ -88,8 +90,8 @@ func (m *MixinModel) BeforeAppendModel(ctx context.Context, query bun.Query) err
 	return nil
 }
 
-// GUIDGen sets global I generator for all models
-func GUIDGen(g Generator) {
+// GUIDGenerator sets global I generator for all models
+func GUIDGenerator(g Generator) {
 	if g != nil {
 		guidMux.Lock()
 		gg = g
@@ -109,7 +111,7 @@ func handleTSZ(m *MixinModel, ctx context.Context, query bun.Query) {
 			m.UpdatedAt = time.Now()
 		case *bun.DeleteQuery:
 			m.DeletedAt = omitnull.From(time.Now())
-			m.IsDeleted = omitnull.From(true)
+			m.IsDeleted = true
 		}
 	}
 }
