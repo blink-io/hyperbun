@@ -4,9 +4,6 @@ import (
 	"context"
 	"database/sql"
 	"reflect"
-
-	"github.com/gofrs/uuid/v5"
-	guuid "github.com/google/uuid"
 )
 
 const (
@@ -16,7 +13,7 @@ const (
 type (
 	// IDType defines the generic type for I in repository
 	IDType interface {
-		~string | uuid.UUID | guuid.UUID |
+		~string | [16]byte |
 			~int | ~uint |
 			~int8 | ~uint8 |
 			~int16 | ~uint16 |

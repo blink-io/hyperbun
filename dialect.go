@@ -2,6 +2,10 @@ package hyperbun
 
 import (
 	"github.com/blink-io/hypersql"
+	"github.com/uptrace/bun/dialect/mssqldialect"
+	"github.com/uptrace/bun/dialect/mysqldialect"
+	"github.com/uptrace/bun/dialect/pgdialect"
+	"github.com/uptrace/bun/dialect/sqlitedialect"
 )
 
 const (
@@ -10,6 +14,8 @@ const (
 	DialectMySQL = hypersql.DialectMySQL
 
 	DialectSQLite = hypersql.DialectSQLite
+
+	DialectSQLServer = hypersql.DialectSQLServer
 )
 
 var (
@@ -18,14 +24,16 @@ var (
 	InvalidConfig         = hypersql.InvalidConfig
 )
 
-func GetDialect(dialect string, ops ...DialectOption) (Dialect, error) {
+func GetDialect(dialect string) (Dialect, error) {
 	switch hypersql.GetFormalDialect(dialect) {
 	case DialectPostgres:
-		return NewPostgresDialect(ops...), nil
+		return pgdialect.New(), nil
 	case DialectMySQL:
-		return NewMySQLDialect(ops...), nil
+		return mysqldialect.New(), nil
 	case DialectSQLite:
-		return NewSQLiteDialect(ops...), nil
+		return sqlitedialect.New(), nil
+	case DialectSQLServer:
+		return mssqldialect.New(), nil
 	default:
 		return nil, hypersql.ErrUnsupportedDialect
 	}

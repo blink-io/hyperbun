@@ -46,11 +46,11 @@ var _ IDB = (*DB)(nil)
 
 func NewFromSqlDB(sqlDB *sql.DB, dialect string, ops ...Option) (*DB, error) {
 	opts := applyOptions(ops...)
-	dl, err := GetDialect(dialect, opts.dialectOptions...)
+	dbOpts := bun.WithOptions(bun.WithDiscardUnknownColumns())
+	dl, err := GetDialect(dialect)
 	if err != nil {
 		return nil, err
 	}
-	dbOpts := bun.WithOptions(bun.WithDiscardUnknownColumns())
 	rdb := bun.NewDB(sqlDB, dl, dbOpts)
 
 	for _, h := range opts.queryHooks {
@@ -68,11 +68,6 @@ func NewFromConf(c *Config, ops ...Option) (*DB, error) {
 	if c == nil {
 		return nil, ErrNilConfig
 	}
-	dOpts := make([]DialectOption, 0)
-	if c.Loc != nil {
-		dOpts = append(dOpts, DialectWithLoc(c.Loc))
-	}
-	ops = append(ops, WithDialectOptions(dOpts...))
 	sqlDB, err := hypersql.NewSqlDB(c)
 	if err != nil {
 		return nil, err
