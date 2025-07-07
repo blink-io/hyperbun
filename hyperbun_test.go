@@ -2,30 +2,43 @@ package hyperbun
 
 import (
 	"fmt"
-	"log/slog"
 	"testing"
-	"time"
 
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"github.com/uptrace/bun"
 )
 
-func TestSafeQuery_1(t *testing.T) {
-	q := "abc"
-	ss := doSafeQuery(q, "a", "b", "c")
-	require.NotNil(t, ss)
+type testStruct struct {
+	bun.BaseModel `bun:"table:test_struct,alias:rt"`
+
+	ID int `bun:"id,pk,autoincrement"`
 }
 
-func TestBun_Logger_1(t *testing.T) {
-	bun.SetLogger(Logf(func(format string, args ...any) {
-		msg := fmt.Sprintf(format, args...)
-		slog.Info(msg)
-	}))
+func TestHyperbunTableForType(t *testing.T) {
+	assert.Equal(t, "test_struct", tableForType[testStruct]())
+	assert.Equal(t, "test_struct", tableForType[*testStruct]())
+	assert.Equal(t, "test_struct", tableForType[[]testStruct]())
+	assert.Equal(t, "test_struct", tableForType[[]*testStruct]())
+	assert.Equal(t, "test_struct", tableForType[*[]testStruct]())
 }
 
-func TestTime_Format_1(t *testing.T) {
-	tt := time.Now()
-	tstr := tt.Format(time.RFC3339Nano)
+func TestAnnotateEven(t *testing.T) {
+	assert.Equal(t,
+		"performing TestAnnotate hello='world' id='0': test_error",
+		annotate(fmt.Errorf("test_error"), "TestAnnotate", "hello", "world", "id", 0).Error(),
+	)
+}
 
-	fmt.Printf("%s\n", tstr)
+func TestAnnotateOdd(t *testing.T) {
+	assert.Equal(t,
+		"performing TestAnnotate hello='world' id='0' odd='<missing value>': test_error",
+		annotate(fmt.Errorf("test_error"), "TestAnnotate", "hello", "world", "id", 0, "odd").Error(),
+	)
+}
+
+func TestAnnotateNoKV(t *testing.T) {
+	assert.Equal(t,
+		"performing TestAnnotate: test_error",
+		annotate(fmt.Errorf("test_error"), "TestAnnotate").Error(),
+	)
 }
