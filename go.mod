@@ -9,7 +9,7 @@ require (
 	github.com/blink-io/hypersql v0.0.0-20250704155146-5b3c438357d4
 	github.com/blink-io/opt v0.0.0-20250618154133-31ccb96a0211
 	github.com/brianvoe/gofakeit/v7 v7.3.0
-	github.com/getsentry/sentry-go v0.34.0
+	github.com/getsentry/sentry-go v0.34.1
 	github.com/goccy/go-json v0.10.5
 	github.com/gofrs/uuid/v5 v5.3.2
 	github.com/google/uuid v1.6.0
@@ -53,9 +53,9 @@ require (
 	golang.org/x/crypto v0.39.0 // indirect
 	golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b // indirect
 	golang.org/x/mod v0.25.0 // indirect
-	golang.org/x/sync v0.15.0 // indirect
-	golang.org/x/sys v0.33.0 // indirect
-	golang.org/x/text v0.26.0 // indirect
+	golang.org/x/sync v0.16.0 // indirect
+	golang.org/x/sys v0.34.0 // indirect
+	golang.org/x/text v0.27.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	modernc.org/libc v1.66.2 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
