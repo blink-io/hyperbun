@@ -5,19 +5,14 @@ go 1.24
 toolchain go1.24.1
 
 require (
-	github.com/aarondl/opt v0.0.0-20250607033636-982744e1bd65
 	github.com/blink-io/hypersql v0.0.0-20250704155146-5b3c438357d4
 	github.com/blink-io/opt v0.0.0-20250618154133-31ccb96a0211
 	github.com/brianvoe/gofakeit/v7 v7.3.0
 	github.com/getsentry/sentry-go v0.34.1
 	github.com/goccy/go-json v0.10.5
-	github.com/gofrs/uuid/v5 v5.3.2
-	github.com/google/uuid v1.6.0
-	github.com/qustavo/sqlhooks/v2 v2.1.0
 	github.com/sanity-io/litter v1.5.8
 	github.com/stretchr/testify v1.10.0
 	github.com/uptrace/bun v1.2.14
-	github.com/uptrace/bun/dialect/mssqldialect v1.2.14
 	github.com/uptrace/bun/dialect/mysqldialect v1.2.14
 	github.com/uptrace/bun/dialect/pgdialect v1.2.14
 	github.com/uptrace/bun/dialect/sqlitedialect v1.2.14
@@ -32,6 +27,7 @@ require (
 	github.com/go-sql-driver/mysql v1.9.3 // indirect
 	github.com/golang-sql/civil v0.0.0-20220223132316-b832511892a9 // indirect
 	github.com/golang-sql/sqlexp v0.1.0 // indirect
+	github.com/google/uuid v1.6.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/pgx/v5 v5.7.5 // indirect
@@ -43,6 +39,7 @@ require (
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/puzpuzpuz/xsync/v3 v3.5.1 // indirect
+	github.com/qustavo/sqlhooks/v2 v2.1.0 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/spf13/cast v1.9.2 // indirect
 	github.com/tmthrgd/go-hex v0.0.0-20190904060850-447a3041c3bc // indirect

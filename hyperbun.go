@@ -47,46 +47,46 @@ func NewContext(ctx context.Context, db *bun.DB) *Context {
 	}
 }
 
-func (db Context) Context() context.Context {
-	return db.ctx
+func (c Context) Context() context.Context {
+	return c.ctx
 }
 
-func (db Context) NewSelect() *bun.SelectQuery {
-	return db.Bun.NewSelect()
+func (c Context) NewSelect() *bun.SelectQuery {
+	return c.Bun.NewSelect()
 }
 
-func (db Context) NewInsert() *bun.InsertQuery {
-	return db.Bun.NewInsert()
+func (c Context) NewInsert() *bun.InsertQuery {
+	return c.Bun.NewInsert()
 }
 
-func (db Context) NewUpdate() *bun.UpdateQuery {
-	return db.Bun.NewUpdate()
+func (c Context) NewUpdate() *bun.UpdateQuery {
+	return c.Bun.NewUpdate()
 }
 
-func (db Context) NewDelete() *bun.DeleteQuery {
-	return db.Bun.NewDelete()
+func (c Context) NewDelete() *bun.DeleteQuery {
+	return c.Bun.NewDelete()
 }
 
-func (db Context) NewMerge() *bun.MergeQuery {
-	return db.Bun.NewMerge()
+func (c Context) NewMerge() *bun.MergeQuery {
+	return c.Bun.NewMerge()
 }
 
-func (db Context) NewRaw(query string, args ...any) *bun.RawQuery {
-	return db.Bun.NewRaw(query, args...)
+func (c Context) NewRaw(query string, args ...any) *bun.RawQuery {
+	return c.Bun.NewRaw(query, args...)
 }
 
-func (db Context) NewValues(model any) *bun.ValuesQuery {
-	return db.Bun.NewValues(model)
+func (c Context) NewValues(model any) *bun.ValuesQuery {
+	return c.Bun.NewValues(model)
 }
 
-func (db Context) RunInTx(fn func(tx TxContext) error) error {
-	return db.Bun.RunInTx(db.ctx, &sql.TxOptions{}, func(ctx context.Context, tx bun.Tx) error {
+func (c Context) RunInTx(fn func(tx TxContext) error) error {
+	return c.Bun.RunInTx(c.ctx, &sql.TxOptions{}, func(ctx context.Context, tx bun.Tx) error {
 		return fn(NewTxContext(ctx, tx))
 	})
 }
 
-func (db Context) ForceRunInTx(fn func(tx TxContext) error) error {
-	return db.RunInTx(fn)
+func (c Context) ForceRunInTx(fn func(tx TxContext) error) error {
+	return c.RunInTx(fn)
 }
 
 // ---------------------------------------------------------------
@@ -105,44 +105,44 @@ func NewTxContext(ctx context.Context, tx bun.Tx) TxContext {
 	}
 }
 
-func (db TxContext) Context() context.Context {
-	return db.ctx
+func (tx TxContext) Context() context.Context {
+	return tx.ctx
 }
 
-func (db TxContext) NewSelect() *bun.SelectQuery {
-	return db.Bun.NewSelect()
+func (tx TxContext) NewSelect() *bun.SelectQuery {
+	return tx.Bun.NewSelect()
 }
 
-func (db TxContext) NewInsert() *bun.InsertQuery {
-	return db.Bun.NewInsert()
+func (tx TxContext) NewInsert() *bun.InsertQuery {
+	return tx.Bun.NewInsert()
 }
 
-func (db TxContext) NewUpdate() *bun.UpdateQuery {
-	return db.Bun.NewUpdate()
+func (tx TxContext) NewUpdate() *bun.UpdateQuery {
+	return tx.Bun.NewUpdate()
 }
 
-func (db TxContext) NewDelete() *bun.DeleteQuery {
-	return db.Bun.NewDelete()
+func (tx TxContext) NewDelete() *bun.DeleteQuery {
+	return tx.Bun.NewDelete()
 }
 
-func (db TxContext) NewMerge() *bun.MergeQuery {
-	return db.Bun.NewMerge()
+func (tx TxContext) NewMerge() *bun.MergeQuery {
+	return tx.Bun.NewMerge()
 }
 
-func (db TxContext) NewRaw(query string, args ...any) *bun.RawQuery {
-	return db.Bun.NewRaw(query, args...)
+func (tx TxContext) NewRaw(query string, args ...any) *bun.RawQuery {
+	return tx.Bun.NewRaw(query, args...)
 }
 
-func (db TxContext) NewValues(model any) *bun.ValuesQuery {
-	return db.Bun.NewValues(model)
+func (tx TxContext) NewValues(model any) *bun.ValuesQuery {
+	return tx.Bun.NewValues(model)
 }
 
-func (db TxContext) RunInTx(fn func(tx TxContext) error) error {
-	return fn(db)
+func (tx TxContext) RunInTx(fn func(tx TxContext) error) error {
+	return fn(tx)
 }
 
-func (db TxContext) ForceRunInTx(fn func(tx TxContext) error) error {
-	return db.Bun.RunInTx(db.ctx, &sql.TxOptions{}, func(ctx context.Context, tx bun.Tx) error {
+func (tx TxContext) ForceRunInTx(fn func(tx TxContext) error) error {
+	return tx.Bun.RunInTx(tx.ctx, &sql.TxOptions{}, func(ctx context.Context, tx bun.Tx) error {
 		return fn(NewTxContext(ctx, tx))
 	})
 }

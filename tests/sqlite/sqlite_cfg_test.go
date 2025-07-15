@@ -7,24 +7,13 @@ import (
 	"path/filepath"
 	"time"
 
-	bunx "github.com/blink-io/hyperbun"
-	"github.com/blink-io/hyperbun/extra/timing"
-
 	sqlx "github.com/blink-io/hypersql"
 	logginghook "github.com/blink-io/hypersql/driver/hooks/logging"
-	"github.com/qustavo/sqlhooks/v2"
 )
 
 var ctx = context.Background()
 
 var sqlitePath = filepath.Join(".", "sqlite_demo.db")
-
-func dbOpts() []bunx.Option {
-	opts := []bunx.Option{
-		bunx.WithQueryHooks(timing.New()),
-	}
-	return opts
-}
 
 func sqliteCfg() *sqlx.Config {
 	rpath, _ := filepath.Abs(sqlitePath)
@@ -33,7 +22,7 @@ func sqliteCfg() *sqlx.Config {
 	var cfg = &sqlx.Config{
 		Dialect:     sqlx.DialectSQLite,
 		Host:        sqlitePath,
-		DriverHooks: newDriverHooks(),
+		DriverHooks: sqliteDriverHooks(),
 		Logger: func(format string, args ...any) {
 			msg := fmt.Sprintf(format, args...)
 			slog.Default().With("db", "sqlite").Info(msg, "mode", "test")
@@ -43,8 +32,8 @@ func sqliteCfg() *sqlx.Config {
 	return cfg
 }
 
-func newDriverHooks() []sqlhooks.Hooks {
-	hs := []sqlhooks.Hooks{
+func sqliteDriverHooks() sqlx.DriverHooks {
+	hs := sqlx.DriverHooks{
 		logginghook.Func(func(format string, args ...any) {
 			slog.Default().Info(fmt.Sprintf(format, args...))
 		}),

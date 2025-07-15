@@ -59,8 +59,14 @@ func New(w io.Writer, prefix string, flag int, opts QueryHookOptions) bun.QueryH
 	}
 }
 
+func Default() bun.QueryHook {
+	return New(os.Stdout, "", log.LstdFlags, QueryHookOptions{
+		ShowTimeTaken: true,
+	})
+}
+
 func (h *hook) logQuery(ctx context.Context, event *bun.QueryEvent) {
-	var reset, red, green, blue, purple string
+	var reset, red, green, blue, purple, cyan string
 	envNoColor, _ := strconv.ParseBool(os.Getenv("NO_COLOR"))
 	if !h.opts.NoColor && !envNoColor {
 		reset = colorReset
@@ -68,6 +74,7 @@ func (h *hook) logQuery(ctx context.Context, event *bun.QueryEvent) {
 		green = colorGreen
 		blue = colorBlue
 		purple = colorPurple
+		cyan = colorCyan
 	}
 	buf := bufPool.Get().(*bytes.Buffer)
 	buf.Reset()
@@ -77,7 +84,7 @@ func (h *hook) logQuery(ctx context.Context, event *bun.QueryEvent) {
 	} else {
 		buf.WriteString(red + "[FAIL]" + reset)
 	}
-	buf.WriteString("[" + event.Operation() + "]")
+	buf.WriteString(cyan + "[" + event.Operation() + "]" + reset)
 	if h.opts.HideArgs {
 		buf.WriteString(" " + event.Query + ";")
 	} else if !h.opts.InterpolateVerbose {
@@ -110,8 +117,8 @@ func (h *hook) logQuery(ctx context.Context, event *bun.QueryEvent) {
 		}
 	}
 	if h.opts.ShowTimeTaken {
-		timeTakenInMs := time.Until(event.StartTime).Milliseconds()
-		buf.WriteString(blue + " timeTaken" + reset + "=" + strconv.FormatInt(timeTakenInMs, 10))
+		timeTakenInMs := time.Since(event.StartTime).Milliseconds()
+		buf.WriteString(blue + " timeTaken" + reset + "=" + strconv.FormatInt(timeTakenInMs, 10) + "ms")
 	}
 	//if queryStats.RowCount.Valid {
 	//	buf.WriteString(blue + " rowCount" + reset + "=" + strconv.FormatInt(queryStats.RowCount.Int64, 10))

@@ -7,21 +7,14 @@ import (
 	"log/slog"
 	"time"
 
-	bunx "github.com/blink-io/hyperbun"
-	"github.com/blink-io/hyperbun/extra/timing"
+	"github.com/blink-io/hyperbun/extra/verbose"
 	sqlx "github.com/blink-io/hypersql"
 	logginghook "github.com/blink-io/hypersql/driver/hooks/logging"
-	"github.com/qustavo/sqlhooks/v2"
+	"github.com/uptrace/bun"
+	"github.com/uptrace/bun/dialect/pgdialect"
 )
 
 var ctx = context.Background()
-
-func dbOpts() []bunx.Option {
-	opts := []bunx.Option{
-		bunx.WithQueryHooks(timing.New()),
-	}
-	return opts
-}
 
 func pgCfg() *sqlx.Config {
 	var cfg = &sqlx.Config{
@@ -31,7 +24,7 @@ func pgCfg() *sqlx.Config {
 		User:        "test",
 		Password:    "test",
 		Name:        "test",
-		DriverHooks: newDriverHooks(),
+		DriverHooks: pgDriverHooks(),
 		Logger: func(format string, args ...any) {
 			msg := fmt.Sprintf(format, args...)
 			slog.Default().With("db", "postgres").Info(msg, "mode", "test")
@@ -41,8 +34,8 @@ func pgCfg() *sqlx.Config {
 	return cfg
 }
 
-func newDriverHooks() []sqlhooks.Hooks {
-	hs := []sqlhooks.Hooks{
+func pgDriverHooks() sqlx.DriverHooks {
+	hs := sqlx.DriverHooks{
 		logginghook.Func(func(format string, args ...any) {
 			slog.Default().Info(fmt.Sprintf(format, args...))
 		}),
@@ -59,12 +52,8 @@ func getPgSqlDB() *sql.DB {
 	return db
 }
 
-func getPgDB() *bunx.DB {
-	db, err := bunx.NewFromConf(pgCfg(), dbOpts()...)
-
-	if err != nil {
-		panic(err)
-	}
-
+func getPgDB() *bun.DB {
+	db := bun.NewDB(getPgSqlDB(), pgdialect.New(), bun.WithDiscardUnknownColumns())
+	db.AddQueryHook(verbose.Default())
 	return db
 }

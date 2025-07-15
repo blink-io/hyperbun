@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"testing"
 
-	bunx "github.com/blink-io/hyperbun"
-
 	"github.com/blink-io/opt/omitnull"
 	"github.com/brianvoe/gofakeit/v7"
 	"github.com/stretchr/testify/require"
@@ -16,7 +14,7 @@ var m2 = (*User)(nil)
 var ms = []any{m1, m2}
 
 func TestSqlite_Bun_CreateTable_1(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 	for _, m := range ms {
 		_, err := db.NewCreateTable().IfNotExists().Model(m).Exec(ctx)
 		require.NoError(t, err)
@@ -24,7 +22,7 @@ func TestSqlite_Bun_CreateTable_1(t *testing.T) {
 }
 
 func TestSqlite_Bun_DropTable_1(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 	for _, m := range ms {
 		_, err := db.NewDropTable().IfExists().Model(m).Exec(ctx)
 		require.NoError(t, err)
@@ -37,11 +35,9 @@ func TestSqlite_Bun_RebuildTable_1(t *testing.T) {
 }
 
 func TestSqlite_Bun_Custom_Update_1(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 
-	rdb := bunx.NewGenericDB[Application, string](db)
-
-	ds := rdb.NewUpdate().
+	ds := db.NewUpdate().
 		Table("applications").
 		SetColumn("status", "?", "no-ok").
 		Where("status = ?", "ok")
@@ -49,24 +45,8 @@ func TestSqlite_Bun_Custom_Update_1(t *testing.T) {
 	require.NoError(t, err1)
 }
 
-func TestSqlite_Bun_Custom_Update_2(t *testing.T) {
-	db := getSqliteDB()
-
-	rdb := bunx.NewGenericDB[Application, string](db)
-
-	cv1 := bunx.NewColumnValue[int]("level", 888)
-	cv2 := bunx.NewColumnValue[string]("description", "Column Description")
-	ds := rdb.NewUpdate().
-		Table("applications").
-		SetColumn(cv1.Column, "?", cv1.Value).
-		SetColumn(cv2.Column, "?", cv2.Value).
-		Where("id = ?", 25)
-	_, err1 := ds.Exec(ctx)
-	require.NoError(t, err1)
-}
-
 func TestSqlite_Bun_Custom_Update_Bulk_1(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 
 	u1 := new(User)
 	u1.ID = 1
@@ -94,7 +74,7 @@ func TestSqlite_Bun_Custom_Update_Bulk_1(t *testing.T) {
 }
 
 func TestSqlite_Bun_Custom_Update_Bulk_2(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 
 	u1 := map[string]any{
 		"id":       1,
@@ -123,7 +103,7 @@ func TestSqlite_Bun_Custom_Update_Bulk_2(t *testing.T) {
 }
 
 func TestSqlite_Bun_Map_Update_1(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 
 	value := map[string]interface{}{
 		"status":      "no-ok",
@@ -138,7 +118,7 @@ func TestSqlite_Bun_Map_Update_1(t *testing.T) {
 }
 
 func TestSqlite_Bun_RawSQL_Update_1(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 
 	_, err := db.NewUpdate().NewRaw(
 		"update applications set status = ?, description = ? where id = ?",
@@ -148,9 +128,9 @@ func TestSqlite_Bun_RawSQL_Update_1(t *testing.T) {
 }
 
 func TestSqlite_Bun_Map_Insert_1(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 
-	val := newRandomUserMap()
+	val := randomApplication()
 
 	sqlstr := db.NewInsert().
 		Model(&val).
@@ -164,11 +144,11 @@ func TestSqlite_Bun_Map_Insert_1(t *testing.T) {
 }
 
 func TestSqlite_Bun_Map_Insert_2(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 
-	vals := []map[string]any{
-		newRandomUserMap(),
-		newRandomUserMap(),
+	vals := []*Application{
+		randomApplication(),
+		randomApplication(),
 	}
 
 	q := db.NewInsert().
@@ -181,7 +161,7 @@ func TestSqlite_Bun_Map_Insert_2(t *testing.T) {
 }
 
 func TestSqlite_Bun_Custom_Select_1(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 
 	var ids []int64
 	var descs []omitnull.Val[string]
@@ -193,29 +173,8 @@ func TestSqlite_Bun_Custom_Select_1(t *testing.T) {
 	require.NoError(t, err)
 }
 
-func TestSqlite_Bun_RawSQL_Select_1(t *testing.T) {
-	db := getSqliteDB()
-
-	var users bunx.ModelSlice[User]
-	err := db.NewRaw("select * from users").Scan(ctx, &users)
-	require.NoError(t, err)
-}
-
-func TestSqlite_Bun_All_Custom_1(t *testing.T) {
-	db := getSqliteDB()
-	ms, err := bunx.DoAll[IDAndName](ctx, db, bunx.DoWithSelectQuery(func(q *bunx.SelectQuery) *bunx.SelectQuery {
-		q.ModelTableExpr("applications as a1")
-		q.Limit(3)
-		return q
-	}))
-	require.NoError(t, err)
-	require.NotNil(t, ms)
-
-	println("Is Empty: ", ms.Emtpy())
-}
-
 func TestSqlite_Bun_Select_Funcs(t *testing.T) {
-	db := getSqliteDB()
+	db := getSqliteBunDB()
 
 	type Result struct {
 		Payload string `db:"payload"`

@@ -3,8 +3,10 @@ package sqlite
 import (
 	"database/sql"
 
-	bunx "github.com/blink-io/hyperbun"
+	"github.com/blink-io/hyperbun/extra/verbose"
 	sqlx "github.com/blink-io/hypersql"
+	"github.com/uptrace/bun"
+	"github.com/uptrace/bun/dialect/sqlitedialect"
 )
 
 func init() {
@@ -12,7 +14,6 @@ func init() {
 
 func getSqliteSqlDB() *sql.DB {
 	db, err := sqlx.NewSqlDB(sqliteCfg())
-	//db.AddQueryHook(logging.Func(log.Printf))
 	if err != nil {
 		panic(err)
 	}
@@ -20,12 +21,12 @@ func getSqliteSqlDB() *sql.DB {
 	return db
 }
 
-func getSqliteDB() *bunx.DB {
-	db, err := bunx.NewFromConf(sqliteCfg(), dbOpts()...)
-
-	if err != nil {
-		panic(err)
-	}
-
+func getSqliteBunDB() *bun.DB {
+	db := bun.NewDB(
+		getSqliteSqlDB(),
+		sqlitedialect.New(),
+		bun.WithDiscardUnknownColumns(),
+	)
+	db.AddQueryHook(verbose.Default())
 	return db
 }
